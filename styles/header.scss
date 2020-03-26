@@ -1,0 +1,148 @@
+/***************PROYECTO 1: Podcast****************
+Alumno: Pablo Rius Blanco
+Institucion: Acamica
+Profesores: Daniel Francesch y Gastón Tognola
+Tutora: Martina Alonso Moreno
+************************************************/
+
+/*********** COMENTARIOS *******************
+El nav es lo mas complejo de toda la pagina.
+Por suerte es simple y consistente en la muestra.
+Sin embargo, hacerlo aparecer y desaparecer solo
+con css no fue tan facil.
+
+Hay muchos elementos con display none u opacidad 0.
+Con las pseudo clases del final van apareciendo.
+Intentare comentarlo mas abajo a ver si queda claro.
+
+************************************************/
+
+
+@import "./variables.scss";
+
+//======================================//
+////////////////HEADER/////////////////
+//======================================//
+
+header {
+  z-index: 10;
+  height: 2.75rem;
+  width: 100vw;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $blanco;
+
+  .header_contenedor {
+    width: 90vw;
+    display: inline-flex;
+    justify-content: space-between;
+
+    .inputdesplegable {
+      display: none; //oculta el input checkbox
+    }
+
+    .logo_contenedor {
+      display: flex;
+      align-items: center;
+      img {
+        width: 1.5rem;
+      }
+    }
+  }
+
+  .labelinput {
+    //contenedor de los iconos FA //
+    width: 1.13rem;
+    position: relative;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+  }
+  .fas {
+    //iconos Font Awesome, Cruz y Barra //
+    color: black; //ACA USA NEGRO??? que paso con el #060A24???
+    font-size: 1.13rem;
+    position: absolute;
+    cursor: pointer;
+    transition: opacity ease-in-out 100ms;
+  }
+
+  .fa-times {
+    opacity: 0; //para que no se vea la cruz hasta que no este checked el input
+    z-index: 11;
+  }
+}
+
+nav {
+  margin-top: 2.75rem;
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  background-color: $azul;
+  transform: scale(1, 0); //de esta forma es basicamente unidimensional, jaja.
+  transition: all ease-in-out 250ms;
+  transform-origin: top; //el origin esta para que se despliegue de arriba a abajo.
+  display: flex;
+  justify-content: center;
+
+  ul {
+    width: 90vw;
+    list-style-type: none;
+
+    li {
+      margin: 1.75rem 0;
+    }
+
+    a {
+      font-family: $mono;
+      font-size: 1rem;
+      color: $blanco;
+      text-transform: uppercase;
+      opacity: 0; //esto es porque aparece medio deformado hasta que se despliega
+      text-decoration: none;
+      transition: opacity ease-in-out 100ms;
+      line-height: 1.75rem;
+      &:hover { 
+        color: $verdeazul;
+        text-decoration: line-through
+      }
+      &:active {
+        color: $activo; //esta varible la arme al principio, no sabia que se usaba aca solo finalmente
+        text-decoration: line-through
+      }
+    }
+  }
+}
+
+//======================================//
+/////////////PSEUDO CLASES///////////////
+////////DESPLEGA MENU Y EFECTOS//////////
+//======================================//
+
+input:checked ~ nav {
+  //hace aparecer el nav
+  transform: scale(1, 1);
+  transition: all ease-in-out 250ms;
+}
+
+input:checked ~ nav a {
+  //hace aparecer los links con un delay, asi no se deforman
+  opacity: 1;
+  transition: opacity ease-in-out 250ms 350ms;
+}
+
+input:checked ~ label .fa-times {
+  // aparece la cruz
+  opacity: 1;
+  transition: opacity ease-in-out 100ms;
+}
+
+input:checked ~ label .fa-bars {
+  // desapacere la hamburguesa
+  opacity: 0;
+  transition: opacity ease-in-out 100ms;
+}

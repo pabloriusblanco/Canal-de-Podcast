@@ -1,0 +1,618 @@
+@charset "UTF-8";
+/***************PROYECTO 1: Podcast****************
+Alumno: Pablo Rius Blanco
+Institucion: Acamica
+Profesores: Daniel Francesch y Gastón Tognola
+Tutora: Martina Alonso Moreno
+************************************************/
+/*********** COMENTARIOS *******************
+Arme todo con Sass porque me termino resultando mas 
+intuitivo y practico que el css. Intente ahorrar 
+lo que mas pude en codigo, utilizando un estilo
+variables.scss. Tambien deje el menu de navegacion 
+en un .scss aparte, nuevamente por un tema de comodidad.
+
+Arme las páginas lo más cercano a las muestras que pude,
+literamente lo más cercano posible. Los márgenes
+son inconsistentes en la muestra y, por lo tanto, son
+inconsistentes aca. Creo que utilizaron (en la muestra) 
+medidas absolutas por momentos y rem/em, 
+y viewport en otras.
+
+Finalmente hice algunos comentarios a lo largo del código
+únicamente cuando aparece algo que sale de la normalidad
+de la metodología. Quizás son escasos.
+************************************************/
+* {
+  margin: 0;
+  border: none;
+  padding: 0;
+  font-size: 16px; }
+
+/***************PROYECTO 1: Podcast****************
+Alumno: Pablo Rius Blanco
+Institucion: Acamica
+Profesores: Daniel Francesch y Gastón Tognola
+Tutora: Martina Alonso Moreno
+************************************************/
+/*********** COMENTARIOS *******************
+Aca defini tipografías y colores. Asi como algunas
+clases que se repetian a lo largo de la página.
+
+En el html hay span para poder asignarlos como absolute
+y usarlos como ancla de navegacion de los href internos.
+Estan en absolute para poder dar la posicion correcta
+dependiendo del espacio que ocupa la barra de navegacion.
+
+************************************************/
+#episodios,
+#about,
+#entrevistas,
+#topics {
+  position: absolute;
+  top: -18.5rem; }
+
+.seccion {
+  display: flex;
+  justify-content: center; }
+
+.titulo {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 36px;
+  font-weight: 400;
+  color: #060a24;
+  margin: 1.75rem 0 0.5rem 0;
+  line-height: 2.63rem; }
+
+.texto_general {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 14px;
+  color: #060a24;
+  line-height: 22px;
+  margin: 0.5rem 0; }
+
+.boton {
+  display: flex;
+  width: 90vw;
+  padding: 13px 0;
+  background-color: #00f3bb;
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 500;
+  font-size: 1rem;
+  color: #060a24;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  margin: 1.75rem 0 1.5rem 0; }
+  .boton:hover {
+    background-image: linear-gradient(225deg, #0000fe 0%, #00f0b8 100%);
+    color: #ffffff; }
+
+/***************PROYECTO 1: Podcast****************
+Alumno: Pablo Rius Blanco
+Institucion: Acamica
+Profesores: Daniel Francesch y Gastón Tognola
+Tutora: Martina Alonso Moreno
+************************************************/
+/*********** COMENTARIOS *******************
+El nav es lo mas complejo de toda la pagina.
+Por suerte es simple y consistente en la muestra.
+Sin embargo, hacerlo aparecer y desaparecer solo
+con css no fue tan facil.
+
+Hay muchos elementos con display none u opacidad 0.
+Con las pseudo clases del final van apareciendo.
+Intentare comentarlo mas abajo a ver si queda claro.
+
+************************************************/
+/***************PROYECTO 1: Podcast****************
+Alumno: Pablo Rius Blanco
+Institucion: Acamica
+Profesores: Daniel Francesch y Gastón Tognola
+Tutora: Martina Alonso Moreno
+************************************************/
+/*********** COMENTARIOS *******************
+Aca defini tipografías y colores. Asi como algunas
+clases que se repetian a lo largo de la página.
+
+En el html hay span para poder asignarlos como absolute
+y usarlos como ancla de navegacion de los href internos.
+Estan en absolute para poder dar la posicion correcta
+dependiendo del espacio que ocupa la barra de navegacion.
+
+************************************************/
+#episodios,
+#about,
+#entrevistas,
+#topics {
+  position: absolute;
+  top: -18.5rem; }
+
+.seccion {
+  display: flex;
+  justify-content: center; }
+
+.titulo {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 36px;
+  font-weight: 400;
+  color: #060a24;
+  margin: 1.75rem 0 0.5rem 0;
+  line-height: 2.63rem; }
+
+.texto_general {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 14px;
+  color: #060a24;
+  line-height: 22px;
+  margin: 0.5rem 0; }
+
+.boton {
+  display: flex;
+  width: 90vw;
+  padding: 13px 0;
+  background-color: #00f3bb;
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 500;
+  font-size: 1rem;
+  color: #060a24;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  margin: 1.75rem 0 1.5rem 0; }
+  .boton:hover {
+    background-image: linear-gradient(225deg, #0000fe 0%, #00f0b8 100%);
+    color: #ffffff; }
+
+header {
+  z-index: 10;
+  height: 2.75rem;
+  width: 100vw;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff; }
+  header .header_contenedor {
+    width: 90vw;
+    display: inline-flex;
+    justify-content: space-between; }
+    header .header_contenedor .inputdesplegable {
+      display: none; }
+    header .header_contenedor .logo_contenedor {
+      display: flex;
+      align-items: center; }
+      header .header_contenedor .logo_contenedor img {
+        width: 1.5rem; }
+  header .labelinput {
+    width: 1.13rem;
+    position: relative;
+    display: flex;
+    justify-content: right;
+    align-items: center; }
+  header .fas {
+    color: black;
+    font-size: 1.13rem;
+    position: absolute;
+    cursor: pointer;
+    transition: opacity ease-in-out 100ms; }
+  header .fa-times {
+    opacity: 0;
+    z-index: 11; }
+
+nav {
+  margin-top: 2.75rem;
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  background-color: #0000ec;
+  transform: scale(1, 0);
+  transition: all ease-in-out 250ms;
+  transform-origin: top;
+  display: flex;
+  justify-content: center; }
+  nav ul {
+    width: 90vw;
+    list-style-type: none; }
+    nav ul li {
+      margin: 1.75rem 0; }
+    nav ul a {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 1rem;
+      color: #ffffff;
+      text-transform: uppercase;
+      opacity: 0;
+      text-decoration: none;
+      transition: opacity ease-in-out 100ms;
+      line-height: 1.75rem; }
+      nav ul a:hover {
+        color: #00f3bb;
+        text-decoration: line-through; }
+      nav ul a:active {
+        color: rgba(6, 10, 36, 0.56);
+        text-decoration: line-through; }
+
+input:checked ~ nav {
+  transform: scale(1, 1);
+  transition: all ease-in-out 250ms; }
+
+input:checked ~ nav a {
+  opacity: 1;
+  transition: opacity ease-in-out 250ms 350ms; }
+
+input:checked ~ label .fa-times {
+  opacity: 1;
+  transition: opacity ease-in-out 100ms; }
+
+input:checked ~ label .fa-bars {
+  opacity: 0;
+  transition: opacity ease-in-out 100ms; }
+
+.presentacion {
+  padding-top: 2.75rem; }
+  .presentacion .presentacion_contenedor {
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+    .presentacion .presentacion_contenedor .titulo .linethrough {
+      text-decoration: line-through; }
+    .presentacion .presentacion_contenedor .titulo .bluedot {
+      color: #0000ec; }
+    .presentacion .presentacion_contenedor .texto_desktop {
+      display: none; }
+    .presentacion .presentacion_contenedor a {
+      text-decoration: none; }
+
+.azul_contenedor {
+  display: flex;
+  width: 100vw;
+  background: linear-gradient(225deg, #0000ff 0%, #0000a3 100%);
+  transform: skewY(-6deg);
+  transform-origin: right;
+  justify-content: center; }
+  .azul_contenedor .spotify_contenedor {
+    width: 90vw;
+    display: flex;
+    flex-wrap: wrap;
+    transform: skewY(6deg);
+    margin: 1rem 0;
+    padding-bottom: 6.5rem; }
+    .azul_contenedor .spotify_contenedor .titulo {
+      color: #ffffff; }
+    .azul_contenedor .spotify_contenedor .episodios_contenedor {
+      margin-top: 1rem; }
+      .azul_contenedor .spotify_contenedor .episodios_contenedor iframe {
+        width: 100%;
+        height: 232px;
+        border: 0px;
+        background-color: transparent; }
+
+.nosotros {
+  transform: translateY(-4rem);
+  margin-bottom: -3rem; }
+  .nosotros .nosotros_contenedor {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+    .nosotros .nosotros_contenedor .contenedor_telefono img {
+      width: 100%; }
+    .nosotros .nosotros_contenedor .texto_nosotros {
+      position: relative;
+      width: 90vw; }
+      .nosotros .nosotros_contenedor .texto_nosotros .titulo {
+        margin-top: 1.69rem; }
+
+.invitados_contenedor {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  align-items: center; }
+  .invitados_contenedor h3 {
+    width: 90vw; }
+  .invitados_contenedor .imagenes_invitados {
+    display: flex;
+    flex-wrap: wrap; }
+    .invitados_contenedor .imagenes_invitados img {
+      width: 100%; }
+
+.temas_contenedor {
+  width: 90vw;
+  position: relative; }
+  .temas_contenedor h3 {
+    margin-bottom: 2.5rem; }
+  .temas_contenedor .iconos_contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center; }
+    .temas_contenedor .iconos_contenedor .icon_temas {
+      margin-bottom: 3rem; }
+      .temas_contenedor .iconos_contenedor .icon_temas img {
+        width: 32.5vw;
+        margin-bottom: 13px; }
+      .temas_contenedor .iconos_contenedor .icon_temas p {
+        color: #060a24;
+        font-family: "IBM Plex Sans", sans-serif;
+        font-weight: 600;
+        font-size: 1.5rem;
+        line-height: 2rem;
+        margin: 0; }
+
+.novedades {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center; }
+  .novedades .azul_contenedor2 {
+    position: absolute;
+    width: 100vw;
+    height: 100%;
+    background: linear-gradient(225deg, #0000ff 0%, #0000a3 100%);
+    transform: skewY(-6deg);
+    transform-origin: right; }
+  .novedades .novedades_contenedor {
+    margin-top: 2rem;
+    width: 90vw;
+    z-index: 10; }
+    .novedades .novedades_contenedor .titulo {
+      text-align: center;
+      color: #ffffff;
+      line-height: 42px;
+      margin-bottom: 2rem; }
+    .novedades .novedades_contenedor a {
+      text-decoration: none; }
+      .novedades .novedades_contenedor a .boton {
+        margin-bottom: 4rem; }
+
+footer {
+  height: 8rem;
+  background-color: #ffffff;
+  z-index: 10; }
+  footer .footer_contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+    footer .footer_contenedor .texto_general {
+      margin: 1.5rem 0 0.5rem 0; }
+    footer .footer_contenedor .redes_footer {
+      width: 14.2rem;
+      margin: 1rem 0 2rem 0;
+      display: flex;
+      justify-content: space-between; }
+      footer .footer_contenedor .redes_footer a {
+        color: #060a24; }
+
+/***************PROYECTO 1: Podcast****************
+Alumno: Pablo Rius Blanco
+Institucion: Acamica
+Profesores: Daniel Francesch y Gastón Tognola
+Tutora: Martina Alonso Moreno
+************************************************/
+/*********** COMENTARIOS *******************
+Aca tuve que cambiar la mayoria de los margenes,
+no eran coherentes con rems o ems, para que sea 
+igual a la muestra. 
+Cambie muchos flex con direction a rows y a grids.
+
+Me ayudo bastante cambiar las clases definidas
+en variables.
+************************************************/
+/***************PROYECTO 1: Podcast****************
+Alumno: Pablo Rius Blanco
+Institucion: Acamica
+Profesores: Daniel Francesch y Gastón Tognola
+Tutora: Martina Alonso Moreno
+************************************************/
+/*********** COMENTARIOS *******************
+Aca defini tipografías y colores. Asi como algunas
+clases que se repetian a lo largo de la página.
+
+En el html hay span para poder asignarlos como absolute
+y usarlos como ancla de navegacion de los href internos.
+Estan en absolute para poder dar la posicion correcta
+dependiendo del espacio que ocupa la barra de navegacion.
+
+************************************************/
+#episodios,
+#about,
+#entrevistas,
+#topics {
+  position: absolute;
+  top: -18.5rem; }
+
+.seccion {
+  display: flex;
+  justify-content: center; }
+
+.titulo {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 36px;
+  font-weight: 400;
+  color: #060a24;
+  margin: 1.75rem 0 0.5rem 0;
+  line-height: 2.63rem; }
+
+.texto_general {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 14px;
+  color: #060a24;
+  line-height: 22px;
+  margin: 0.5rem 0; }
+
+.boton {
+  display: flex;
+  width: 90vw;
+  padding: 13px 0;
+  background-color: #00f3bb;
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 500;
+  font-size: 1rem;
+  color: #060a24;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  margin: 1.75rem 0 1.5rem 0; }
+  .boton:hover {
+    background-image: linear-gradient(225deg, #0000fe 0%, #00f0b8 100%);
+    color: #ffffff; }
+
+@media all and (min-width: 768px) {
+  #episodios,
+  #about,
+  #entrevistas,
+  #topics {
+    top: -6rem; }
+
+  .titulo {
+    font-size: 48px;
+    margin: 1.75rem 0 0 0;
+    line-height: 62px; }
+
+  .texto_general {
+    font-size: 16px;
+    line-height: 24px;
+    margin: 0; }
+
+  .boton {
+    width: max-content;
+    padding: 16px 59px;
+    font-size: 18px;
+    margin: 3.5rem 0 5px 0; }
+
+  header {
+    height: 5rem; }
+    header .header_contenedor {
+      width: 86vw; }
+      header .header_contenedor .logo_contenedor {
+        display: flex;
+        align-items: center; }
+        header .header_contenedor .logo_contenedor img {
+          width: 2.25rem; }
+    header .labelinput {
+      display: none; }
+
+  nav {
+    margin-top: 0rem;
+    z-index: 10;
+    position: relative;
+    width: max-content;
+    background-color: transparent;
+    transform: none; }
+    nav ul {
+      display: flex;
+      width: max-content; }
+      nav ul a {
+        color: #060a24;
+        opacity: 1;
+        font-weight: 500;
+        line-height: 20px;
+        margin-left: 3rem; }
+
+  .presentacion {
+    padding-top: 5rem;
+    justify-content: center; }
+    .presentacion .presentacion_contenedor {
+      width: 72vw;
+      align-items: flex-start; }
+      .presentacion .presentacion_contenedor h1 {
+        font-size: 64px;
+        line-height: 84px;
+        margin-top: 7.5rem; }
+        .presentacion .presentacion_contenedor h1 .linethrough {
+          font-size: 64px;
+          text-decoration: line-through; }
+      .presentacion .presentacion_contenedor .texto_mobile {
+        display: none; }
+      .presentacion .presentacion_contenedor .texto_desktop {
+        max-width: 630px;
+        display: block; }
+
+  .azul_contenedor .spotify_contenedor {
+    margin: 5rem 0;
+    padding-bottom: 5rem;
+    justify-content: center; }
+    .azul_contenedor .spotify_contenedor .titulo {
+      width: 72vw; }
+    .azul_contenedor .spotify_contenedor .episodios_contenedor {
+      margin-top: 26px;
+      width: 86vw;
+      display: grid;
+      grid-template: 1fr 1fr / 1fr 1fr;
+      gap: 72px; }
+      .azul_contenedor .spotify_contenedor .episodios_contenedor iframe {
+        width: 100%;
+        height: 232px; }
+
+  .nosotros {
+    transform: translateY(-1.5rem);
+    margin-bottom: -2rem; }
+    .nosotros .nosotros_contenedor {
+      width: 86vw;
+      flex-direction: row;
+      justify-content: center; }
+      .nosotros .nosotros_contenedor .contenedor_telefono img {
+        height: 660px; }
+      .nosotros .nosotros_contenedor .texto_nosotros {
+        margin-left: 5rem;
+        width: 465px; }
+        .nosotros .nosotros_contenedor .texto_nosotros h3 {
+          margin-bottom: 1.5rem; }
+
+  .invitados_contenedor {
+    margin: 4rem 0 3.6rem 0; }
+    .invitados_contenedor h3 {
+      margin: 0;
+      width: 72vw; }
+    .invitados_contenedor .imagenes_invitados {
+      margin-top: 36px;
+      display: grid;
+      grid-template: 1fr 1fr / 1fr 1fr 1fr; }
+
+  .temas_contenedor {
+    width: 72vw; }
+    .temas_contenedor .titulo {
+      margin: 0 0 4.3rem 0; }
+    .temas_contenedor .iconos_contenedor {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: baseline; }
+      .temas_contenedor .iconos_contenedor .icon_temas {
+        margin-bottom: 0rem;
+        width: 18vw; }
+        .temas_contenedor .iconos_contenedor .icon_temas img {
+          width: 104px;
+          margin-bottom: 29px; }
+
+  .novedades {
+    margin-top: 34px; }
+    .novedades .novedades_contenedor {
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+      align-items: center; }
+      .novedades .novedades_contenedor .titulo {
+        margin: 213px 0 36px 0; }
+      .novedades .novedades_contenedor .boton {
+        margin: 0 0 151px 0; }
+
+  footer {
+    display: flex;
+    height: 6rem;
+    justify-content: center; }
+    footer .footer_contenedor {
+      width: 86vw;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between; }
+      footer .footer_contenedor .texto_general {
+        margin: 0; }
+      footer .footer_contenedor .redes_footer {
+        margin: 0; } }
+
+/*# sourceMappingURL=style.css.map */

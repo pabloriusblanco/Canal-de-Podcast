@@ -1,0 +1,285 @@
+/***************PROYECTO 1: Podcast****************
+Alumno: Pablo Rius Blanco
+Institucion: Acamica
+Profesores: Daniel Francesch y Gastón Tognola
+Tutora: Martina Alonso Moreno
+************************************************/
+
+/*********** COMENTARIOS *******************
+Aca tuve que cambiar la mayoria de los margenes,
+no eran coherentes con rems o ems, para que sea 
+igual a la muestra. 
+Cambie muchos flex con direction a rows y a grids.
+
+Me ayudo bastante cambiar las clases definidas
+en variables.
+************************************************/
+
+//======================================//
+/////////////////DESKTOP////////////////
+//======================================//
+
+@import "./variables.scss";
+
+@media all and (min-width: 768px) {
+  //======================================//
+  ///////////////VARIABLES SCSS//////////////
+  //======================================//
+
+  #episodios,
+  #about,
+  #entrevistas,
+  #topics {
+    //estos son los span con id para navegar la pagina, tienen -6 rem por el nav fixed
+    top: -6rem;
+  }
+
+  .titulo {
+    font-size: 48px;
+    margin: 1.75rem 0 0 0;
+    line-height: 62px;
+  }
+
+  .texto_general {
+    font-size: 16px;
+    line-height: 24px;
+    margin: 0;
+  }
+
+  .boton {
+    width: max-content;
+    padding: 16px 59px;
+    font-size: 18px;
+    margin: 3.5rem 0 5px 0;
+  }
+
+  //======================================//
+  /////////////////HEADER//////////////////
+  //======================================//
+
+  header {
+    height: 5rem;
+
+    .header_contenedor {
+      width: 86vw;
+      .logo_contenedor {
+        display: flex;
+        align-items: center;
+        img {
+          width: 2.25rem;
+        }
+      }
+    }
+
+    .labelinput { //oculta la hamburguesa y la cruz
+      display: none;
+    }
+  }
+
+  nav {
+    margin-top: 0rem;
+    z-index: 10;
+    position: relative;
+    width: max-content;
+    background-color: transparent;
+    transform: none;
+
+    ul {
+      display: flex;
+      width: max-content;
+
+      a {
+        color: $azuloscuro;
+        opacity: 1; //estaba en 0 en mobile hasta que se desplegaba
+        font-weight: 500; //es medium en la muestra
+        line-height: 20px;
+        margin-left: 3rem;
+      }
+    }
+  }
+
+  //======================================//
+  //////////////PRESENTACION///////////////
+  //======================================//
+
+  .presentacion {
+    padding-top: 5rem;
+    justify-content: center;
+
+    .presentacion_contenedor {
+      width: 72vw;
+      align-items: flex-start;
+
+      h1 {
+        font-size: 64px;
+        line-height: 84px;
+        margin-top: 7.5rem;
+        .linethrough {
+          font-size: 64px;
+          text-decoration: line-through;
+        }
+      }
+      .texto_mobile {
+        //oculta texto mobile
+        display: none;
+      }
+      .texto_desktop {
+        //muestra texto desktop
+        max-width: 630px; //dos lineas en muestra
+        display: block;
+      }
+    }
+  }
+
+  //======================================//
+  //////////////////SPOTIFY/////////////////
+  //======================================//
+
+  .azul_contenedor {
+    .spotify_contenedor {
+      margin: 5rem 0;
+      padding-bottom: 5rem;
+      justify-content: center;
+
+      .titulo {
+        width: 72vw;
+      }
+
+      .episodios_contenedor {
+        margin-top: 26px;
+        width: 86vw;
+        display: grid;
+        grid-template: 1fr 1fr / 1fr 1fr;
+        gap: 72px;
+        iframe {
+          width: 100%;
+          height: 232px;
+        }
+      }
+    }
+  }
+
+  //======================================//
+  /////////////////NOSOTROS////////////////
+  //======================================//
+
+  .nosotros {
+    transform: translateY(-1.5rem); //Telefono superpuesto con el div azul
+    margin-bottom: -2rem;
+
+    .nosotros_contenedor {
+      width: 86vw;
+      flex-direction: row;
+      justify-content: center;
+
+      .contenedor_telefono {
+        img {
+          height: 660px;
+        }
+      }
+
+      .texto_nosotros {
+        margin-left: 5rem;
+        width: 465px;
+        h3 {
+          margin-bottom: 1.5rem;
+        }
+      }
+    }
+  }
+
+  //======================================//
+  /////////////////invitados////////////////
+  //======================================//
+
+  .invitados_contenedor {
+    margin: 4rem 0 3.6rem 0;
+
+    h3 {
+      margin: 0;
+      width: 72vw;
+    }
+
+    .imagenes_invitados {
+      margin-top: 36px;
+      display: grid;
+      grid-template: 1fr 1fr / 1fr 1fr 1fr;
+    }
+  }
+
+  //======================================//
+  /////////////////temas////////////////
+  //======================================//
+
+  .temas_contenedor {
+    width: 72vw;
+    .titulo {
+      margin: 0 0 4.3rem 0;
+    }
+
+    .iconos_contenedor {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: baseline;
+
+      .icon_temas {
+        margin-bottom: 0rem;
+        width: 18vw;
+
+        img {
+          width: 104px;
+          margin-bottom: 29px;
+        }
+      }
+    }
+  }
+
+  //======================================//
+  ////////////////novedades/////////////////
+  //======================================//
+
+  .novedades {
+    margin-top: 34px;
+
+    .novedades_contenedor {
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+      align-items: center;
+
+      .titulo {
+        margin: 213px 0 36px 0; //213px o 19.44rem en muestra, super random. medida viewport?? //
+      }
+
+      .boton {
+        margin: 0 0 151px 0; // lo mismo que arriba //
+      }
+    }
+  }
+
+  //======================================//
+  /////////////////FOOTER////////////////
+  //======================================//
+
+  footer {
+    display: flex;
+    height: 6rem;
+    justify-content: center;
+
+    .footer_contenedor {
+      width: 86vw;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      .texto_general {
+        margin: 0;
+      }
+
+      .redes_footer {
+        margin: 0;
+      }
+    }
+  }
+}

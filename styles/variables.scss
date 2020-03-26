@@ -1,0 +1,95 @@
+/***************PROYECTO 1: Podcast****************
+Alumno: Pablo Rius Blanco
+Institucion: Acamica
+Profesores: Daniel Francesch y Gastón Tognola
+Tutora: Martina Alonso Moreno
+************************************************/
+
+/*********** COMENTARIOS *******************
+Aca defini tipografías y colores. Asi como algunas
+clases que se repetian a lo largo de la página.
+
+En el html hay span para poder asignarlos como absolute
+y usarlos como ancla de navegacion de los href internos.
+Estan en absolute para poder dar la posicion correcta
+dependiendo del espacio que ocupa la barra de navegacion.
+
+************************************************/
+
+//======================================//
+////////////////FUENTES/////////////////
+//======================================//
+
+$sans: "IBM Plex Sans", sans-serif;
+$mono: "IBM Plex Mono", monospace;
+
+//======================================//
+////////////////COLORES/////////////////
+//======================================//
+
+$azuloscuro: #060a24;
+$blanco: #ffffff;
+$verdeazul: #00f3bb;
+$azul: #0000ec;
+$activo: rgba(
+  $color: #060a24,
+  $alpha: 0.56
+);
+$gradverdeazul: linear-gradient(225deg, #0000fe 0%, #00f0b8 100%);
+$gradazul: linear-gradient(225deg, #0000ff 0%, #0000a3 100%);
+
+
+//======================================//
+/////////////////GENERALES////////////////
+//======================================//
+
+#episodios,
+#about,
+#entrevistas,
+#topics {
+  //estos son los span con id para navegar la pagina, tienen -18.5rem 
+  //por la suma del height del nav desplegado y del header
+  position: absolute;
+  top: -18.5rem;
+}
+
+.seccion {
+  display: flex;
+  justify-content: center;
+}
+
+.titulo {
+  font-family: $sans;
+  font-size: 36px;
+  font-weight: 400;
+  color: $azuloscuro;
+  margin: 1.75rem 0 0.5rem 0;
+  line-height: 2.63rem;
+}
+
+.texto_general {
+  font-family: $mono;
+  font-size: 14px;
+  color: $azuloscuro;
+  line-height: 22px;
+  margin: 0.5rem 0;
+}
+
+.boton {
+  display: flex;
+  width: 90vw;
+  padding: 13px 0;
+  background-color: $verdeazul;
+  font-family: $mono;
+  font-weight: 500;
+  font-size: 1rem;
+  color: $azuloscuro;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  margin: 1.75rem 0 1.5rem 0;
+  &:hover {
+    background-image: $gradverdeazul;
+    color: $blanco;
+  }
+}

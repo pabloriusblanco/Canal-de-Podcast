@@ -1,0 +1,279 @@
+/***************PROYECTO 1: Podcast****************
+Alumno: Pablo Rius Blanco
+Institucion: Acamica
+Profesores: Daniel Francesch y Gastón Tognola
+Tutora: Martina Alonso Moreno
+************************************************/
+
+/*********** COMENTARIOS *******************
+Arme todo con Sass porque me termino resultando mas 
+intuitivo y practico que el css. Intente ahorrar 
+lo que mas pude en codigo, utilizando un estilo
+variables.scss. Tambien deje el menu de navegacion 
+en un .scss aparte, nuevamente por un tema de comodidad.
+
+Arme las páginas lo más cercano a las muestras que pude,
+literamente lo más cercano posible. Los márgenes
+son inconsistentes en la muestra y, por lo tanto, son
+inconsistentes aca. Creo que utilizaron (en la muestra) 
+medidas absolutas por momentos y rem/em, 
+y viewport en otras.
+
+Finalmente hice algunos comentarios a lo largo del código
+únicamente cuando aparece algo que sale de la normalidad
+de la metodología. Quizás son escasos.
+************************************************/
+
+//======================================//
+///////////SETTINGS GENERALES////////////
+//======================================//
+
+* {
+  margin: 0;
+  border: none;
+  padding: 0;
+  font-size: 16px;
+}
+
+@import "./styles/variables.scss";
+
+//======================================//
+////////////////HEADER/////////////////
+//======================================//
+
+@import "./styles/header.scss";
+
+//======================================//
+//////////////PRESENTACION///////////////
+//======================================//
+.presentacion {
+  padding-top: 2.75rem;
+
+  .presentacion_contenedor {
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .titulo {
+      .linethrough {
+        text-decoration: line-through;
+      }
+      .bluedot {
+        color: #0000ec;
+      }
+    }
+    .texto_desktop {
+      //oculta texto desktop
+      display: none;
+    }
+    a {
+      text-decoration: none;
+    }
+  }
+}
+
+//======================================//
+//////////////////SPOTIFY/////////////////
+//======================================//
+
+.azul_contenedor {
+  display: flex;
+  width: 100vw;
+  background: $gradazul;
+  transform: skewY(-6deg);
+  transform-origin: right;
+  justify-content: center;
+
+  .spotify_contenedor {
+    width: 90vw;
+    display: flex;
+    flex-wrap: wrap;
+    transform: skewY(6deg); //correccion del skew //
+    margin: 1rem 0;
+    padding-bottom: 6.5rem;
+
+    .titulo {
+      color: $blanco;
+    }
+
+    .episodios_contenedor {
+      margin-top: 1rem;
+      iframe {
+        width: 100%;
+        height: 232px;
+        border: 0px;   // CORECCION DE NELSON PEDERNERA
+        background-color: transparent;  // CORECCION DE NELSON PEDERNERA
+      }
+    }
+  }
+}
+
+//======================================//
+/////////////////NOSOTROS////////////////
+//======================================//
+
+.nosotros {
+  transform: translateY(-4rem); //Telefono superpuesto con el div anterior //
+  margin-bottom: -3rem; //margen corregido por el translate //
+
+  .nosotros_contenedor {
+    width: 100vw; //contenedor 100vw para el telefono //
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .contenedor_telefono {
+      img {
+        width: 100%; // por los margenes del .png del telefono, va a al 100% //
+      }
+    }
+
+    .texto_nosotros {
+      position: relative; // para el span absolute con el attribute id para el href //
+      width: 90vw; //pero el texto sigue teniendo los margenes de 5vw //
+      .titulo {
+        margin-top: 1.69rem;
+      }
+    }
+  }
+}
+
+//======================================//
+/////////////////invitados////////////////
+//======================================//
+
+.invitados_contenedor {
+  position: relative; // para el span absolute con el attribute id para el href //
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  align-items: center;
+
+  h3 {
+    width: 90vw;
+  }
+
+  .imagenes_invitados {
+    display: flex;
+    flex-wrap: wrap;
+
+    img {
+      width: 100%;
+    }
+  }
+}
+
+//======================================//
+/////////////////temas////////////////
+//======================================//
+
+.temas_contenedor {
+  width: 90vw;
+  position: relative; // para el span absolute con el attribute id para el href //
+  h3 {
+    margin-bottom: 2.5rem;
+  }
+  .iconos_contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    .icon_temas {
+      margin-bottom: 3rem;
+      img {
+        width: 32.5vw;
+        margin-bottom: 13px;
+      }
+      p {
+        color: $azuloscuro;
+        font-family: $sans;
+        font-weight: 600;
+        font-size: 1.5rem;
+        line-height: 2rem;
+        margin: 0;
+      }
+    }
+  }
+}
+
+//======================================//
+////////////////novedades/////////////////
+//======================================//
+
+.novedades {
+  //Este es el contenedor del div inferior azul, que tiene el mismo skew
+  //que el primero, pero termina con los angulos inferiores en 90° //
+
+  position: relative; // relativo porque el div azul nesteado es absolute //
+  overflow: hidden; // overflown para no tener problemas en el pasaje a desktop //
+  display: flex;
+  justify-content: center;
+
+  .azul_contenedor2 {
+    position: absolute;
+    width: 100vw;
+    height: 100%;
+    background: $gradazul;
+    transform: skewY(-6deg); // como es un div absolute no tiene nada nesteado, no hace falta corregir el skew //
+    transform-origin: right;
+  }
+
+  .novedades_contenedor {
+    margin-top: 2rem;
+    width: 90vw;
+    z-index: 10;
+
+    .titulo {
+      text-align: center;
+      color: $blanco;
+      line-height: 42px;
+      margin-bottom: 2rem;
+    }
+a {
+  text-decoration: none;
+    .boton {
+      margin-bottom: 4rem;
+    }
+  }
+  }
+}
+
+//======================================//
+/////////////////FOOTER////////////////
+//======================================//
+
+footer {
+  height: 8rem;
+  background-color: $blanco;
+  z-index: 10;
+
+  .footer_contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .texto_general {
+      margin: 1.5rem 0 0.5rem 0;
+    }
+
+    .redes_footer {
+      width: 14.2rem;
+      margin: 1rem 0 2rem 0;
+      display: flex;
+      justify-content: space-between;
+
+      a {
+        color: $azuloscuro;
+      }
+    }
+  }
+}
+
+//======================================//
+/////////////////DESKTOP////////////////
+//======================================//
+
+@import "./styles/desktop.scss";
+

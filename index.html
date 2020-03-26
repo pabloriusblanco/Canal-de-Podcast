@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--***************PROYECTO 1: Podcast****************
+Alumno: Pablo Rius Blanco
+Institucion: Acamica
+Profesores: Daniel Francesch y Gastón Tognola
+Tutora: Martina Alonso Moreno
+*******************************************************
+
+/*********** COMENTARIOS *******************
+No tengo demasiado que comentar del html.
+
+Utilicé section para los segmentos de la pagina e intenté
+agrupar los nombres de las clases, para que sea mas facil
+encontrarlos en el html (exceptuando las clases que se repiten
+a lo largo del codigo)
+************************************************/-->
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Podcast P.Rius Blanco</title>
+    <link rel="stylesheet" type="text/css" href="normalizer.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://kit.fontawesome.com/7d4d438d9b.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,500%7CIBM+Plex+Sans:400,600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="header_contenedor">
+            <div class="logo_contenedor">
+                <img src="./imagenes/logo.svg" alt="logo con las letras BD">
+            </div>
+            <input type="checkbox" id="menuhamburguesa" class="inputdesplegable">
+            <label for="menuhamburguesa" class="labelinput">
+                <i class="fas fa-bars" id="hamburguesa"></i>
+                <i class="fas fa-times" id="cruz"></i>
+            </label>
+            <nav>
+                <ul>
+                    <li><a href="#episodios">Episodios</a></li>
+                    <li><a href="#about">Nosotros</a></li>
+                    <li><a href="#entrevistas">Entrevistas</a></li>
+                    <li><a href="#topics">Tópicos</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="presentacion seccion">
+        <div class="presentacion_contenedor">
+            <h1 class="titulo">Hello <span class="linethrough titulo">world</span> pale blue dot<span
+                    class="bluedot titulo">.</span></h1>
+            <p class="texto_general texto_mobile">Un podcast que explora el mundo de la programación. Nuevos
+                episodios, todos los
+                jueves cada 15 días.</p>
+            <p class="texto_general texto_desktop">El portal de podcasts que explora el mundo de la programación y
+                la
+                tecnología. Nuevos episodios, todos los jueves cada 15 días.</p>
+            <a href="#about">
+                <div class="boton">CONOCÉ MÁS</div>
+            </a>
+        </div>
+    </section>
+
+    <section class="spotify seccion">
+        <div class="azul_contenedor"><span id="episodios"></span>
+            <div class="spotify_contenedor">
+                <h3 class="titulo">Episodios</h3>
+                <div class="episodios_contenedor">
+                    <iframe src="https://open.spotify.com/embed-podcast/episode/7AZZy2nJ4R9ZndHW0h2yxt" allow="encrypted-media"></iframe>
+                    <iframe src="https://open.spotify.com/embed-podcast/episode/1ezdL2ivAGLwSE6Xbssxqt" allow="encrypted-media"></iframe>
+                    <iframe src="https://open.spotify.com/embed-podcast/episode/3cWta1iiQSfvrdHaCbLkSD" allow="encrypted-media"></iframe>
+                    <iframe src="https://open.spotify.com/embed-podcast/episode/31VyAQAwBiKoHVoYUCEzjQ" allow="encrypted-media"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="nosotros seccion">
+        <div class="nosotros_contenedor">
+            <div class="contenedor_telefono">
+                <img src="./imagenes/phone.png" alt="imagen de un smartphone con un articulo del New York Times">
+            </div>
+            <div class="texto_nosotros"><span id="about"></span>
+                <h3 class="titulo">De dónde venimos</h3>
+                <p class="texto_general">Our posturings, our imagined self-importance, the delusion that we have
+                    some privileged position in the Universe, are challenged by this point of pale light. <br><br>
+                    Our planet is a lonely speck in the great enveloping cosmic dark. In our obscurity, in all this
+                    vastness, there is no hint that help will come from elsewhere to save us from ourselves.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="invitados seccion">
+        <div class="invitados_contenedor"><span id="entrevistas"></span>
+            <h3 class="titulo">Invitadas/os estelares</h3>
+            <div class="imagenes_invitados">
+                <img src="./imagenes/grace-hopper.png" alt="foto en blanco y negro de una mujer, Grace Hopper">
+                <img src="./imagenes/Katie-Bouman.png" alt="foto en blanco y negro de una mujer, Katie Bouman">
+                <img src="./imagenes/Margaret_Hamilton.png"
+                    alt="foto en blanco y negro de una mujer, Margaret Hamilton">
+                <img src="./imagenes/AnERAUnivac1103.png"
+                    alt="Foto en blanco y negro de mujeres utilizando una computadora E.R.A.Univac en 1950">
+                <img src="./imagenes/Computer-operators-with-an-Eniac.png"
+                    alt="Foto en blanco y negro de mujeres utilizando la primer computadora programable">
+                <img src="./imagenes/susan-kare.png" alt="foto en blanco y negro de una mujer, Susan Kare">
+            </div>
+        </div>
+    </section>
+
+    <section class="temas seccion">
+        <div class="temas_contenedor"><span id="topics"></span>
+            <h3 class="titulo">Algunos de nuestros temas</h3>
+            <div class="iconos_contenedor">
+
+                <div class="icon_temas">
+                    <img src="./imagenes/icon1.svg"
+                        alt="dibujo simplificado haciendo alusión al transferimiento de datos">
+                    <p class="texto_general">Trabajo remoto</p>
+                </div>
+
+
+                <div class="icon_temas">
+                    <img src="./imagenes/icon2.svg"
+                        alt="dibujo simplificado de una cabeza con un engranaje futurista en lugar de cerebro">
+                    <p class="texto_general">Repensando la programación</p>
+                </div>
+
+
+                <div class="icon_temas">
+                    <img src="./imagenes/icon3.svg" alt="dibujo simplificado de una computadora con código">
+                    <p class="texto_general">Bases del código</p>
+                </div>
+
+
+                <div class="icon_temas">
+                    <img src="./imagenes/icon4.svg" alt="dibujo simplificado de un cilindro-engranaje futurista">
+                    <p class="texto_general">Seguridad informática</p>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <section class="novedades seccion">
+        <div class="azul_contenedor2"></div>
+        <div class="novedades_contenedor">
+            <h3 class="titulo">¿Querés las últimas novedades?</h3>
+            <a href="#episodios">
+                <div class="boton">ESCUCHÁ LOS EPISODIOS</div>
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer_contenedor">
+            <p class="texto_general">© 2019— Hello blue pale dot</p>
+            <div class="redes_footer">
+                <a href="https://www.spotify.com/" target="_blank"><i class="fab fa-spotify"></i></a>
+                <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://web.telegram.org/" target="_blank"><i class="fab fa-telegram"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
